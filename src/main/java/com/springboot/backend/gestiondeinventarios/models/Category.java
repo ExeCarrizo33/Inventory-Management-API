@@ -20,7 +20,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "notBlank.name.category")
+    @NotBlank(message = "{notBlank.name.category}")
     private String name;
 
     @CreationTimestamp
