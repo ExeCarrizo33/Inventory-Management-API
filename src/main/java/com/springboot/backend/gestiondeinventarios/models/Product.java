@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Accessors(chain = true)
 @Table(name = "products")
 public class Product {
 
@@ -36,10 +38,7 @@ public class Product {
 
     private LocalDate update_At;
 
-    @PrePersist
-    public void prePersist(){
-        this.update_At = LocalDate.now();
-    }
+
 
 
 }
