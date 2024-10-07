@@ -15,6 +15,6 @@ public interface IProductService {
 
     Product update(Product product, Long id);
 
-    void delete(Product product);
+    void delete(Long id);
 
 }

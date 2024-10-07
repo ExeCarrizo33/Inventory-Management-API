@@ -1,6 +1,8 @@
 package com.springboot.backend.gestiondeinventarios.services.Impl;
 
+import com.springboot.backend.gestiondeinventarios.models.Category;
 import com.springboot.backend.gestiondeinventarios.models.Product;
+import com.springboot.backend.gestiondeinventarios.repository.CategoryRepository;
 import com.springboot.backend.gestiondeinventarios.repository.ProductRepository;
 import com.springboot.backend.gestiondeinventarios.services.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,9 @@ public class ProductServiceImpl implements IProductService {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @Override
     public List<Product> findAll() {
@@ -41,6 +46,7 @@ public class ProductServiceImpl implements IProductService {
                 .setName(product.getName())
                 .setDescription(product.getDescription())
                 .setPrice(product.getPrice())
+
         );
 
         return productRepository.save(product);
@@ -48,8 +54,8 @@ public class ProductServiceImpl implements IProductService {
     }
 
     @Override
-    public void delete(Product product) {
-        productRepository.delete(product);
+    public void delete(Long id) {
+        productRepository.deleteById(id);
 
     }
 }

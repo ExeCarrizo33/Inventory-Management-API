@@ -35,8 +35,11 @@ public class Product {
     @CreationTimestamp
     private LocalDate create_At;
 
-
+    @CreationTimestamp
     private LocalDate update_At;
+
+    @ManyToOne
+    private Category category;
 
 
 
